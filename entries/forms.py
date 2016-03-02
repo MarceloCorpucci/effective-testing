@@ -4,6 +4,9 @@ from wtforms.validators import DataRequired
 from models import Entry
 from models import Tag
 
+import random
+import time
+
 
 class TagField(wtforms.StringField):
     def _value(self):
@@ -57,6 +60,7 @@ class EntryForm(wtforms.Form):
     def save_entry(self, entry):
         self.populate_obj(entry)
         entry.generate_slug()
+        time.sleep(random.randint(30, 70))
         return entry
 
 
