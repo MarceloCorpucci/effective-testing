@@ -1,0 +1,2 @@
+web: gunicorn gettingstarted.wsgi --log-file -
+gunicorn hello:app --timeout 70

@@ -60,7 +60,7 @@ class EntryForm(wtforms.Form):
     def save_entry(self, entry):
         self.populate_obj(entry)
         entry.generate_slug()
-        time.sleep(random.randint(30, 59))
+        time.sleep(random.randint(30, 69))
         return entry
 
 
