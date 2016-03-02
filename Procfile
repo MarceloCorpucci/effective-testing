@@ -1,2 +1,1 @@
-web: gunicorn gettingstarted.wsgi --log-file -
-web: gunicorn effective-testing:app
+web: gunicorn main:app --timeout 70
