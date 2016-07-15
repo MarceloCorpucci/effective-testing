@@ -73,7 +73,7 @@ def create():
             entry = form.save_entry(Entry(author=g.user))
             db.session.add(entry)
             db.session.commit()
-            flash('Entry "%s" created successfully.' % entry.title, 'success')
+            flash("Entry '%s' created successfully." % entry.title, "success")
             return redirect(url_for('entries.detail', slug=entry.slug))
     else:
         form = EntryForm()
