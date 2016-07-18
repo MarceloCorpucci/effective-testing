@@ -7,7 +7,7 @@
 {% block content_title %}Create new entry{% endblock %}
 
 {% block content %}
-	<form action="{{ url_for('entries.create') }}" class="form form-horizontal" method="post">
+	<form id="create_post" action="{{ url_for('entries.create') }}" class="form form-horizontal" method="post">
 		{% for field in form %}
 			{{ form_field(field) }}
 		{% endfor %}
