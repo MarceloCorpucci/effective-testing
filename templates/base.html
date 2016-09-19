@@ -40,7 +40,7 @@
 </div>
 <div class="container">
 <div class="row">
-<div class="col-md-9">
+<div class="col-md-9" id="content_title">
 <h1>{% block content_title %}{% endblock %}</h1>
 	{% for category, message in get_flashed_messages(with_categories=true)%}
         <div id="notification" class="alert alert-dismissable alert-{{ category }}">
