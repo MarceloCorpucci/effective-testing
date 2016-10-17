@@ -1,3 +1,5 @@
+from random import randint
+import time
 import os
 from flask import request
 from flask import render_template
@@ -73,8 +75,10 @@ def create():
             entry = form.save_entry(Entry(author=g.user))
             db.session.add(entry)
             db.session.commit()
-            flash("Entry '%s' created successfully." % entry.title, "success")
-            return redirect(url_for('entries.detail', slug=entry.slug))
+            elapsed_time=randint(10,12)
+            time.sleep(elapsed_time)
+            flash("Entry '" + entry.title + "' created successfully." str(elapsed_time), "success")
+            #return redirect(url_for('entries.detail', slug=entry.slug))
     else:
         form = EntryForm()
 
