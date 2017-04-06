@@ -75,9 +75,10 @@ def create():
             entry = form.save_entry(Entry(author=g.user))
             db.session.add(entry)
             db.session.commit()
-            elapsed_time=randint(10,12)
-            time.sleep(elapsed_time)
-            flash("Entry '" + entry.title + "' created successfully." + str(elapsed_time), "success")
+            #elapsed_time=randint(10,12)
+            #time.sleep(elapsed_time)
+            #flash("Entry '" + entry.title + "' created successfully." + str(elapsed_time), "success")
+            flash("Entry '" + entry.title + "' created successfully.", "success")
             #return redirect(url_for('entries.detail', slug=entry.slug))
     else:
         form = EntryForm()
