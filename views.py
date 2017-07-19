@@ -3,25 +3,29 @@ from flask.ext.login import login_user, logout_user
 from app import app
 from app import login_manager
 from forms import LoginForm
-
+from models import User
 
 @app.route("/")
 def homepage():
     return render_template("homepage.html")
 
 
-@app.route("/login/", methods=["GET", "POST"])
-def login():
-    if request.method == "POST":
-        form = LoginForm(request.form)
-        if form.validate():
-            login_user(form.user, remember=form.remember_me.data)
-            flash("Successfully logged in as %s." % form.user.email, "success")
-            return redirect(request.args.get("next") or url_for("homepage"))
-    else:
-        form = LoginForm()
-
-    return render_template("login.html", form=form)
+@app.route("/login/", methods=["GET", "POST"])                                     
+def login():                                                                       
+    if request.method == "POST":                                                   
+        form = LoginForm(request.form)                                             
+        if form.validate():                                                        
+            user = User.query.filter(User.email == form.user.email).first_or_404() 
+            if user.active == True:                                                
+                login_user(form.user, remember=form.remember_me.data)              
+                flash("Successfully logged in as %s." % form.user.email, "success")
+                return redirect(request.args.get("next") or url_for("homepage"))   
+            else:                                                                  
+                flash('This user is not active. Please contact an administrator.') 
+    else:                                                                          
+        form = LoginForm()                                                         
+                                                                                   
+    return render_template("login.html", form=form)                                
 
 
 @app.route("/logout/")
