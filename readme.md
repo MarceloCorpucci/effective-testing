@@ -27,7 +27,7 @@ If you want to start consuming this application with [Docker](https://www.docker
 * Build the Docker image based on the Dockerfile contained in here:
 ```
 $ docker build -f Dockerfile.effective-testing -t effective-testing .
-``
+```
 * Run a container based on the compiled image
 ```
 $ docker run --publish 5000:5000 --detach --name effective-testing effective-testing
