@@ -24,7 +24,11 @@ $ python /path/to/project/main.py
 ```
 
 If you want to start consuming this application with [Docker](https://www.docker.com/get-started):
-* Build the Docker image based on the Dockerfile contained in here:
+* The easiest way is to pull the [image](https://hub.docker.com/r/mcorpucci/effective-testing) from the DockerHub:
+````
+$ docker run -p 5000:5000 mcorpucci/effective-testing
+````
+* But if you want to build the Docker image based on the Dockerfile contained in here, then:
 ```
 $ docker build -f Dockerfile.effective-testing -t effective-testing .
 ```
@@ -32,9 +36,9 @@ $ docker build -f Dockerfile.effective-testing -t effective-testing .
 ```
 $ docker run --publish 5000:5000 --detach --name effective-testing effective-testing
 ```
-* Enter into the container to launch the app
+* No matter if you built the image or just downloaded from DockerHub, enter into the container to launch the app
 ```
-$ docker run -it -p5000:5000 effective-testing
+$ docker run -it -p 5000:5000 effective-testing
 ```
 
 ## Running the tests
