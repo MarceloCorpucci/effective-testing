@@ -1,4 +1,4 @@
-from flask.ext.restless import ProcessingException
+from flask_restless import ProcessingException
 
 from app import api
 from entries.forms import CommentForm

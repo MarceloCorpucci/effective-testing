@@ -1,10 +1,10 @@
-from flask.ext.restless import APIManager
+from flask_restless import APIManager
 from flask import Flask, g
-from flask.ext.migrate import Migrate, MigrateCommand
-from flask.ext.script import Manager
+from flask_migrate import Migrate, MigrateCommand
+from flask_script import Manager
 from config import Configuration
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.login import LoginManager, current_user
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager, current_user
 
 app = Flask(__name__)
 app.config.from_object(Configuration)

@@ -1,9 +1,8 @@
-Flask==0.10.1
+Flask==0.12.5
 SQLAlchemy==1.1.0
 Flask-Migrate==1.7.0
 WTForms==2.1
 Flask-Login==0.3.2
 Flask-Admin==1.4.0
 Flask-Restless==0.17.0
-gunicorn==19.4.5
 
